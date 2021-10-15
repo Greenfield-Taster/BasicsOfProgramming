@@ -1,2 +1,2 @@
 # BasicsOfProgramming
-Here I am studying im programming
+Here I am studying programming
