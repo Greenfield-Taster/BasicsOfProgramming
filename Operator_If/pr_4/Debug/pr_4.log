@@ -1,0 +1,4 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(513,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (pr_4.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  pr_4.cpp
+E:\Ася\OS_Saenko\pr_4\Operator_If\pr_4\pr_4.cpp(16,23): warning C4244: '*=': conversion from 'double' to 'float', possible loss of data
+  pr_4.vcxproj -> E:\Ася\OS_Saenko\pr_4\Operator_If\Debug\pr_4-1.exe
