@@ -1,19 +1,21 @@
 #include <iostream>
+#include "pr4-3.h"
 
 using namespace std;
 
-int main()
+void Pr3Method()
 {
     setlocale(0, "");
-    int x, i, sum, cost;
+    int numberOfGoods, sum, cost;
+
     sum = 0;
     cout << "Введите кол. товаров: ";
-    cin >> x;
-    for (int i = 0; i < x; i++) {
+    cin >> numberOfGoods;
+    
+    for (int i = 0; i < numberOfGoods; i++) {
         cout << "Стоимость товара: ";
         cin >> cost;
         sum += cost;
     }
     cout << sum;
-    return 0;
 }

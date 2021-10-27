@@ -145,6 +145,11 @@
     <ClCompile Include="pr4-2.cpp" />
     <ClCompile Include="pr4-3.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pr4-1.h" />
+    <ClInclude Include="pr4-2.h" />
+    <ClInclude Include="pr4-3.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -1,8 +1,9 @@
 #include <iostream>
+#include "pr4-2.h"
 
 using namespace std;
 
-int main()
+void Pr2Method()
 {
     setlocale(0, "");
     int b, i;
@@ -10,5 +11,4 @@ int main()
     cin >> b;
     for (i = 35; i > b; i--)
         cout << i << "@";
-    return 0;
 }

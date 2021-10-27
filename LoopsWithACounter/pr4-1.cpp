@@ -3,7 +3,7 @@
 
 using namespace std;
 
-int main()
+void Pr1Method()
 {
 	setlocale(0, "");
 	float w, n;
@@ -18,5 +18,4 @@ int main()
 	} while (m <= n);
 	cout << "w= " << w - sqrt(n) << endl;
 	system("pause");
-	return 0;
 }
