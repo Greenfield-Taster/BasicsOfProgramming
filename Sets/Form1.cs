@@ -8,100 +8,100 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Sets
 {
     public partial class Form1 : Form
     {
+        private List<int> collection1 = new List<int>();
+        private List<int> collection2 = new List<int>();
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        public static int ASize = 3;
-        public static int BSize = 3;
-
-        public string[] A = new string[ASize];
-        public string[] B = new string[BSize];
-
-        public static void Input(string[] A, string[] B = null)
+        private void buttonInput_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < A.Length; i++)
-            {
-                A[i] = Interaction.InputBox($"Введите элемент {i + 1} множества А");
-            }
+            collection1.Clear();
+            collection2.Clear();
 
-            if (B != null)
-                for (int i = 0; i < B.Length; i++)
-                {
-                    B[i] = Interaction.InputBox($"Введите элемент {i + 1} множества B");
-                }
+            string textA = textBoxA.Text;
+            string textB = textBoxB.Text;
+
+            string[] splitedTextA = textA.Split(' ');
+            string[] splitedTextB = textB.Split(' ');
+
+            int[] a = splitedTextA
+                .Where(x => !string.IsNullOrWhiteSpace(x)) // Запускает foreach и проверяет чтоб элемент не был пустым
+                .Select(x => int.Parse(x)) // Запускает foreach и переводит элемент в int
+                .ToArray(); // Переводим в массив 
+
+            int[] b = splitedTextB
+                .Where(x => !string.IsNullOrWhiteSpace(x)) // Запускает foreach и проверяет чтоб элемент не был пустым
+                .Select(x => int.Parse(x)) // Запускает foreach и переводит элемент в int
+                .ToArray(); // Переводим в массив 
+
+            collection1.AddRange(a);
+            collection2.AddRange(b);
         }
+        
+        private string ConvertArrayToString(int[] array)
+        {
+            string numbers = string.Empty;
 
+            for (int i = 0; i < array.Length; i++)
+            {
+                numbers += $"{array[i]}, ";
+            }
+            return numbers;
+        }
 
         private void объединениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            Input(A, B);
-            listBox1.Items.Add(A.Union(B));
+            IEnumerable<int> unionResult  = collection1.Union(collection2);
+            string output = ConvertArrayToString(unionResult.ToArray());
+            labelResult.Text = output;
         }
 
         private void пересечениеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            Input(A, B);
-            listBox1.Items.Add(A.Intersect(B));
+            IEnumerable<int> intersectResult = collection1.Intersect(collection2);
+            string output = ConvertArrayToString(intersectResult.ToArray());
+            labelResult.Text = output;
         }
 
         private void вычитаниеToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            Input(A, B);
-            listBox1.Items.Add(A.Except(B));
+            IEnumerable<int> exceptResult = collection1.Except(collection2);
+            string output = ConvertArrayToString(exceptResult.ToArray());
+            labelResult.Text = output;
         }
 
         private void сравнениеАВToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            Input(A, B);
-            listBox1.Items.Add(A.SequenceEqual(B));
+             bool equalsResult = Enumerable.Equals(collection1, collection2);
+            labelResult.Text = equalsResult.ToString();
         }
 
         private void аСодержитсяВВToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            int k = 0;
-            for (int i = 0; i < A.Length; i++)
-                if (B.Contains(A[i]))
-                    k++;
+            int count;
+            for (int i = 0; i < ; i++)
+            {
 
-            listBox1.Items.Add(B.Length == k);
+            }
         }
 
         private void вСодержитсяВАToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            int k = 0;
-            for (int i = 0; i < B.Length; i++)
-                if (A.Contains(B[i]))
-                    k++;
-
-            listBox1.Items.Add(A.Length == k);
+            
         }
 
         private void принадлежностьЭлтаМнвуАToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            listBox1.Items.Clear();
-            Input(A);
-
-            if (A.Contains(Interaction.InputBox($"Введите элемент для проверки")))
-            {
-                listBox1.Items.Add("Элемент принадлежит множеству А");
-            }
-            else
-            {
-                listBox1.Items.Add("Элемент не принадлежит множеству А");
-            }
+            
 
         }
 

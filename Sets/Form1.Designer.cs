@@ -40,7 +40,12 @@
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.иДЗToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.textBoxA = new System.Windows.Forms.TextBox();
+            this.textBoxB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelResult = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.menuStripOperation.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +58,7 @@
             this.иДЗToolStripMenuItem});
             this.menuStripOperation.Location = new System.Drawing.Point(0, 0);
             this.menuStripOperation.Name = "menuStripOperation";
-            this.menuStripOperation.Size = new System.Drawing.Size(365, 24);
+            this.menuStripOperation.Size = new System.Drawing.Size(421, 24);
             this.menuStripOperation.TabIndex = 0;
             this.menuStripOperation.Text = "Операции над множествами";
             // 
@@ -141,21 +146,71 @@
             this.иДЗToolStripMenuItem.Text = "ИДЗ";
             this.иДЗToolStripMenuItem.Click += new System.EventHandler(this.иДЗToolStripMenuItem_Click);
             // 
-            // listBox1
+            // textBoxA
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(46, 43);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(272, 225);
-            this.listBox1.TabIndex = 1;
+            this.textBoxA.Location = new System.Drawing.Point(49, 61);
+            this.textBoxA.Name = "textBoxA";
+            this.textBoxA.Size = new System.Drawing.Size(125, 20);
+            this.textBoxA.TabIndex = 2;
+            this.textBoxA.Text = "4 5 3 6 ";
+            // 
+            // textBoxB
+            // 
+            this.textBoxB.Location = new System.Drawing.Point(243, 61);
+            this.textBoxB.Name = "textBoxB";
+            this.textBoxB.Size = new System.Drawing.Size(125, 20);
+            this.textBoxB.TabIndex = 3;
+            this.textBoxB.Text = "4 3 6 8";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Введите можество А";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(249, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Введите множество В";
+            // 
+            // labelResult
+            // 
+            this.labelResult.AutoSize = true;
+            this.labelResult.Location = new System.Drawing.Point(128, 235);
+            this.labelResult.Name = "labelResult";
+            this.labelResult.Size = new System.Drawing.Size(59, 13);
+            this.labelResult.TabIndex = 6;
+            this.labelResult.Text = "Результат";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(148, 128);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 50);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonInput_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(365, 294);
-            this.Controls.Add(this.listBox1);
+            this.ClientSize = new System.Drawing.Size(421, 293);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.labelResult);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBoxB);
+            this.Controls.Add(this.textBoxA);
             this.Controls.Add(this.menuStripOperation);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -181,7 +236,12 @@
         private System.Windows.Forms.ToolStripMenuItem аСодержитсяВВToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вСодержитсяВАToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem принадлежностьЭлтаМнвуАToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.TextBox textBoxA;
+        private System.Windows.Forms.TextBox textBoxB;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelResult;
+        private System.Windows.Forms.Button button1;
     }
 }
 
