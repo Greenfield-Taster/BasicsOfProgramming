@@ -46,7 +46,7 @@ namespace Sets
             collection1.AddRange(a);
             collection2.AddRange(b);
         }
-        
+
         private string ConvertArrayToString(int[] array)
         {
             string numbers = string.Empty;
@@ -60,7 +60,7 @@ namespace Sets
 
         private void объединениеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            IEnumerable<int> unionResult  = collection1.Union(collection2);
+            IEnumerable<int> unionResult = collection1.Union(collection2);
             string output = ConvertArrayToString(unionResult.ToArray());
             labelResult.Text = output;
         }
@@ -81,28 +81,72 @@ namespace Sets
 
         private void сравнениеАВToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             bool equalsResult = Enumerable.Equals(collection1, collection2);
+            bool equalsResult = Enumerable.Equals(collection1, collection2);
             labelResult.Text = equalsResult.ToString();
         }
 
         private void аСодержитсяВВToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int count;
-            for (int i = 0; i < ; i++)
-            {
+            string result = CollectionAContaintsCollectionB(collection1, collection2);
+            labelResult.Text = result;
+        }
 
+        public string CollectionAContaintsCollectionB(List<int> collectionA, List<int> collectionB)
+        {
+            if (collectionB.Count > collectionA.Count)
+            {
+                return "Множество В больше множества А!";
             }
+
+            for (int indexA = 0; indexA < collectionA.Count; indexA++)
+            {
+                int startB = collectionB[0];
+
+                if (collectionA[indexA] == startB)
+                {
+                    int startIndexA = indexA;
+
+                    for (int indexB = 0; indexB < collectionB.Count; indexB++)
+                    {
+                        if (startIndexA > collectionA.Count - 1)
+                        {
+                            break;
+                        }
+
+                        if (collectionA[startIndexA] == collectionB[indexB])
+                        {
+                            startIndexA++;
+                            continue;
+                        }
+
+                        break;
+                    }
+                    return "Можество А содержит множество В";
+                }
+            }
+            return "Можество А не содержит множество В";
         }
 
         private void вСодержитсяВАToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            string result = CollectionAContaintsCollectionB(collection2, collection1);
+            labelResult.Text = result;
         }
 
         private void принадлежностьЭлтаМнвуАToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            string userInput = Interaction.InputBox("Введите число: ");
+            int userNumber = int.Parse(userInput);
 
+            for (int index = 0; index < collection1.Count; index++)
+            {
+                if (collection1[index] ==userNumber)
+                {
+                    labelResult.Text = "Значение принадлежит множеству А";
+                    return;
+                }
+            }
+            labelResult.Text = "Значение не принадлежит множеству А";
         }
 
         private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
