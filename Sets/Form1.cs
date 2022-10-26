@@ -1,14 +1,9 @@
 ﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Sets
 {
@@ -140,7 +135,7 @@ namespace Sets
 
             for (int index = 0; index < collection1.Count; index++)
             {
-                if (collection1[index] ==userNumber)
+                if (collection1[index] == userNumber)
                 {
                     labelResult.Text = "Значение принадлежит множеству А";
                     return;
