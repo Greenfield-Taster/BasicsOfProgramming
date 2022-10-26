@@ -161,13 +161,31 @@ namespace Sets
             {
                 form.Close();
             }
-
         }
 
         private void иДЗToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormIDZ form = new FormIDZ();
-            form.Show();
+            if (collection1.Count != collection2.Count)
+            {
+                labelResult.Text = "Множествo А не равен множеству В";
+                return;
+            }
+
+            for (int index = 0; index < collection1.Count; index++)
+            {
+                if (collection1[index] != collection2[index])
+                {
+                    labelResult.Text = "Множествo А не равен множеству В";
+                    return;
+                }
+            }
+
+            //на этом моменте коллекции равны
+            string userInput = Interaction.InputBox("Введите число: ");
+            int userNumber = int.Parse(userInput);
+
+            textBoxB.Text += $" {userNumber}";
+            labelResult.Text = string.Empty;
         }
     }
 }
